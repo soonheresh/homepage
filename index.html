@@ -41,6 +41,30 @@
   .band > div{max-width:1040px;margin:0 auto}
   footer{background:var(--beige);padding:40px 16px;font-size:13px;color:var(--muted)}
   footer div{max-width:1040px;margin:0 auto}
+  .dept-group{font-size:20px;margin:36px 0 16px;color:var(--brown)}
+  .dept-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .card.dept{background:var(--ivory);padding:0;overflow:hidden;display:flex;flex-direction:column}
+  .dept-img{display:flex;align-items:center;justify-content:center;aspect-ratio:16/7;color:var(--brown);background:linear-gradient(135deg,rgba(139,111,85,.20),rgba(139,111,85,.06))}
+  .dept-img svg{width:64px;height:64px}
+  .card.dept h4{margin:20px 22px 8px;font-size:19px}
+  .card.dept > p{margin:0 22px 10px}
+  .card.dept ul.detail{margin:4px 22px 0;padding-left:18px}
+  .card.dept .how{margin:12px 22px 22px;padding-top:12px;border-top:1px dashed var(--beige);color:var(--ink);font-size:14.5px}
+  .warn{display:block;margin-top:8px;font-size:13px;color:var(--muted)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin:2px 22px 10px}
+  .tags span{background:var(--beige);color:var(--brown);border-radius:999px;padding:3px 12px;font-size:13px;font-weight:600}
+  .disclaimer{margin-top:32px;font-size:13px;color:var(--muted)}
+  .card ul.detail{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:14px}
+  .card ul.detail li{margin-bottom:6px}
+  .products{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .card.product{display:block;padding:0;overflow:hidden}
+  .card.product img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:var(--ivory)}
+  .card.product h3{margin:16px 20px 4px}
+  .card.product .spec{margin:0 20px;font-size:14px}
+  .card.product .price{margin:6px 20px 20px;font-weight:700;color:var(--brown)}
+  .map{margin-top:24px;border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:var(--beige)}
+  .map iframe{width:100%;height:100%;border:0;display:block}
+  @media(max-width:700px){.map{aspect-ratio:4/3}}
   .mobile-bar{display:none}
   @media(max-width:700px){
     nav{display:none}
@@ -58,7 +82,7 @@
 <header>
   <div class="logo">선하한의원</div>
   <nav>
-    <a href="#intro">소개</a><a href="#treatment">진료 안내</a><a href="#booking">예약</a><a href="#shop">제품</a><a href="#location">오시는 길</a>
+    <a href="#intro">소개</a><a href="#treatment">진료 안내</a><a href="#departments">진료 과목</a><a href="#booking">예약</a><a href="#shop">제품</a><a href="#location">오시는 길</a>
   </nav>
   <a class="btn" href="#booking" style="padding:9px 16px;font-size:14px">예약하기</a>
 </header>
@@ -91,11 +115,162 @@
 
 <section id="treatment" style="padding-top:20px">
   <h2>진료 과정</h2>
-  <p class="lead">편안하게 상담하고, 함께 계획을 세웁니다.</p>
+  <p class="lead">설문지 상담, 한의학적 진단, 개인별 맞춤 치료의 순서로 진행합니다.</p>
   <div class="grid">
-    <div class="card"><h3>1. 상담</h3><p>현재 증상과 생활 습관을 편안하게 여쭤봅니다.</p></div>
-    <div class="card"><h3>2. 진단</h3><p>필요한 검사와 설명을 함께 드립니다.</p></div>
-    <div class="card"><h3>3. 치료</h3><p>환자분과 상의해 치료 계획을 정합니다.</p></div>
+    <div class="card">
+      <h3>1. 상담</h3>
+      <p>진료 전에 설문지를 작성해 주시면, 현재 증상과 생활 습관, 과거 병력을 꼼꼼히 확인하고 진료를 시작합니다.</p>
+    </div>
+    <div class="card">
+      <h3>2. 진단</h3>
+      <p>한의학의 <strong>망문문절(望聞問切)</strong>로 몸 상태를 종합적으로 살핍니다.</p>
+      <ul class="detail">
+        <li><strong>망진(望診)</strong> · 설진(舌診): 혀의 모양과 색, 설태를 살핍니다.</li>
+        <li><strong>문진(聞診·問診)</strong>: 목소리와 호흡을 듣고, 증상을 자세히 여쭙니다.</li>
+        <li><strong>절진(切診)</strong> · 복진(腹診)·맥진(脈診): 배를 만져 살피고 맥을 짚어 봅니다.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>3. 치료</h3>
+      <p><strong>침·뜸·한약</strong>을 증상과 체질에 맞춰 함께 또는 따로 사용합니다.</p>
+      <ul class="detail">
+        <li><strong>침·뜸</strong>: 진단 결과에 따라 필요한 부위에 시행합니다.</li>
+        <li><strong>한약</strong>: 환자분 개인별 증상에 맞춰 처방하고, 보름에서 한 달 단위로 복용 후 경과를 보며 조정합니다.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="departments" class="band">
+  <div>
+    <h2>진료 과목</h2>
+    <p class="lead">오래 낫지 않는 불편함을 중심으로, 한 분 한 분의 상태에 맞춰 진료합니다.</p>
+
+    <h3 class="dept-group">집중 치료</h3>
+    <div class="grid dept-grid">
+
+      <article class="card dept">
+        <div class="dept-img" role="img" aria-label="관절·근골격 일러스트">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="6"/><circle cx="22" cy="8" r="5"/><circle cx="50" cy="56" r="6"/><circle cx="42" cy="62" r="5" transform="translate(0 -4)"/><path d="M18 20 L46 48"/><path d="M26 12 L52 38" opacity=".45"/></svg>
+        </div>
+        <h4>만성 관절통 · 근골격질환</h4>
+        <p>무릎, 어깨, 허리, 목의 통증이 반복되거나 오래 이어질 때 통증 부위뿐 아니라 자세와 생활 습관까지 함께 살핍니다.</p>
+        <ul class="detail">
+          <li>퇴행성 관절 통증, 어깨·무릎·손목 관절 불편</li>
+          <li>허리·목 디스크 관련 통증, 근막통증</li>
+          <li>염좌·타박상 이후 남는 통증과 뻣뻣함</li>
+        </ul>
+        <p class="how">침·뜸·약침으로 통증 부위를 다루고, 한약으로 몸 전체의 회복을 돕습니다.</p>
+      </article>
+
+      <article class="card dept">
+        <div class="dept-img" role="img" aria-label="피부 일러스트">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 6 C32 6 14 28 14 40 a18 18 0 0 0 36 0 C50 28 32 6 32 6 Z"/><path d="M24 42 a8 8 0 0 0 8 8" opacity=".5"/></svg>
+        </div>
+        <h4>피부질환</h4>
+        <p>피부는 몸 안의 상태가 드러나는 곳이라는 관점으로, 겉으로 보이는 증상과 함께 악화되는 원인을 찾아갑니다.</p>
+        <div class="tags"><span>건선</span><span>아토피피부염</span><span>한포진</span><span>알레르기</span></div>
+        <ul class="detail">
+          <li>가려움, 건조, 붉은 발진 등 증상 양상 확인</li>
+          <li>음식, 수면, 스트레스, 소화 상태 등 악화 요인 점검</li>
+          <li>재발이 잦은 경우 생활 관리 방향까지 함께 안내</li>
+        </ul>
+        <p class="how">증상과 체질에 맞춘 한약 치료에 침·약침, 필요한 외용 관리를 더합니다.</p>
+      </article>
+
+      <article class="card dept">
+        <div class="dept-img" role="img" aria-label="피부 관리 일러스트">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 6 L37 25 L56 30 L37 35 L32 54 L27 35 L8 30 L27 25 Z"/><path d="M50 8 v8 M46 12 h8" opacity=".5"/></svg>
+        </div>
+        <h4>항노화 · 피부미용</h4>
+        <p>피부 탄력, 칙칙함, 건조함 같은 고민을 겉모습만이 아니라 기혈 순환과 컨디션 관리 차원에서 접근합니다.</p>
+        <ul class="detail">
+          <li>피부 탄력 저하, 주름, 칙칙한 안색</li>
+          <li>건조함, 기미 등 색소 고민 상담</li>
+          <li>피로, 수면, 소화 상태까지 고려한 컨디션 관리</li>
+          <li><strong>미용침</strong>: 얼굴의 경혈과 피부 결을 따라 가는 침을 놓아 안색과 피부 컨디션 관리를 돕습니다.</li>
+        </ul>
+        <p class="how">한약과 미용침을 기본으로, 상태에 따라 매선·약침을 병행합니다. 시술 전 피부 상태와 생활 습관을 충분히 상담합니다.</p>
+      </article>
+
+      <article class="card dept">
+        <div class="dept-img" role="img" aria-label="여성 건강 일러스트">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="24" r="14"/><path d="M32 38 V58 M22 49 H42"/></svg>
+        </div>
+        <h4>부인과</h4>
+        <p>월경, 갱년기, 출산 전후까지 여성의 시기별 변화를 충분히 듣고 편안하게 상담합니다.</p>
+        <ul class="detail">
+          <li>생리통, 생리불순, 월경전증후군</li>
+          <li>갱년기 증상(열감, 수면 불편, 피로감)</li>
+          <li>냉대하, 산후 회복, 임신 준비 상담</li>
+        </ul>
+        <p class="how">한약을 중심으로 침·뜸을 더해 몸의 균형을 맞춥니다.</p>
+      </article>
+
+      <article class="card dept">
+        <div class="dept-img" role="img" aria-label="소화기 일러스트">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 52 C12 26 30 12 54 12 C54 38 40 54 12 52 Z"/><path d="M12 52 C24 40 34 30 46 20" opacity=".55"/></svg>
+        </div>
+        <h4>만성 소화기질환</h4>
+        <p>소화가 불편한 상태가 오래 이어질 때, 복진으로 배의 상태를 직접 살피고 식습관과 생활 리듬을 함께 점검합니다.</p>
+        <ul class="detail">
+          <li>소화불량, 더부룩함, 속쓰림, 역류 증상</li>
+          <li>과민성 장 증상, 변비, 잦은 설사</li>
+          <li>복부 팽만, 식후 불편감, 식욕 저하</li>
+        </ul>
+        <p class="how">개인별 한약 처방에 침·뜸을 병행하며 보름에서 한 달 단위로 경과를 확인합니다.</p>
+      </article>
+
+      <article class="card dept">
+        <div class="dept-img" role="img" aria-label="안면 일러스트">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="22"/><path d="M22 26 h4 M38 26 h4"/><path d="M23 42 C28 47 36 47 41 40" opacity=".6"/><path d="M32 28 V36" opacity=".45"/></svg>
+        </div>
+        <h4>구안와사 (안면신경마비)</h4>
+        <p>얼굴 한쪽이 갑자기 처지거나 눈이 잘 감기지 않는 등의 증상이 나타났을 때, 초기에 상태를 정확히 확인하고 치료 계획을 세웁니다.</p>
+        <ul class="detail">
+          <li>입이 한쪽으로 돌아가거나 말하기·식사가 불편한 경우</li>
+          <li>눈이 잘 감기지 않거나 눈물, 건조함이 있는 경우</li>
+          <li>귀 뒤쪽 통증, 얼굴 감각 둔함이 동반되는 경우</li>
+        </ul>
+        <p class="how">침·뜸·약침과 한약을 상태에 맞춰 병행하고, 경과에 따라 치료를 조정합니다.<br><span class="warn">갑작스러운 얼굴 처짐과 함께 팔다리 힘 빠짐, 말이 어눌함이 있으면 뇌졸중일 수 있으니 즉시 응급실을 방문하세요.</span></p>
+      </article>
+
+    </div>
+
+    <h3 class="dept-group" style="margin-top:56px">특수 치료</h3>
+    <div class="grid dept-grid">
+
+      <article class="card dept">
+        <div class="dept-img" role="img" aria-label="약침 일러스트">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="8" width="14" height="30" rx="3" transform="rotate(35 33 23)"/><path d="M40 33 L56 48" /><path d="M14 52 L24 42" opacity=".5"/><path d="M12 56 c-3-4 0-8 3-8 c3 0 4 4 1 8 z" opacity=".5"/></svg>
+        </div>
+        <h4>약침</h4>
+        <p>한약재에서 추출해 정제한 약침액을 통증 부위나 경혈에 주입하는 치료입니다.</p>
+        <ul class="detail">
+          <li>침 치료만으로 부족하다고 느껴지는 통증 부위에 활용</li>
+          <li>증상과 부위에 맞는 약침액을 선택</li>
+          <li>시술 전 알레르기, 복용 중인 약 확인</li>
+        </ul>
+        <p class="how">침·뜸·한약 치료와 함께 진행해 치료 효과를 보완합니다.</p>
+      </article>
+
+      <article class="card dept">
+        <div class="dept-img" role="img" aria-label="매선 일러스트">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 44 C14 30 22 58 32 44 C42 30 50 58 58 44"/><path d="M8 20 L44 20" opacity=".55"/><path d="M44 20 l8 0 M44 20 l-4 -3 M44 20 l-4 3" opacity=".55"/></svg>
+        </div>
+        <h4>매선</h4>
+        <p>체내에서 서서히 흡수되는 실을 가는 바늘로 피부 아래나 경혈에 넣는 시술입니다.</p>
+        <ul class="detail">
+          <li>얼굴 윤곽·탄력 관리 등 피부미용 목적</li>
+          <li>통증 부위에 오래 자극을 주는 용도로도 활용</li>
+          <li>시술 후 일시적인 멍, 붓기가 있을 수 있어 사전 설명 후 진행</li>
+        </ul>
+        <p class="how">상태에 맞는 부위와 방법을 상담 후 정하고, 시술 후 관리 방법을 안내합니다.</p>
+      </article>
+
+    </div>
+
+    <p class="disclaimer">치료 방법과 경과는 개인의 상태에 따라 다를 수 있으며, 정확한 진료는 진단 후 안내해 드립니다. 한약·약침·매선 시술 전에는 복용 중인 약과 알레르기 여부를 꼭 알려 주세요.</p>
   </div>
 </section>
 
@@ -108,24 +283,33 @@
       <li>초진이신 경우 예약 후 문진 설문지를 작성해 주세요.</li>
       <li>문의는 051-293-9675로 주세요.</li>
     </ol>
-    <p style="margin-top:28px"><a class="btn" href="#">네이버 예약하기 (링크 입력)</a></p>
+    <p style="margin-top:28px"><a class="btn" href="https://map.naver.com/p/entry/place/13249673" target="_blank" rel="noopener">네이버 예약하기</a></p>
     <p style="font-size:14px;color:var(--muted)">진료 시간: 월·화·수·금 09:30 - 18:30 · 토요일 09:30 - 13:00 · 목요일·일요일 휴무</p>
   </div>
 </section>
 
 <section id="shop">
-  <div class="split">
-    <div>
-      <h2>제품 안내</h2>
-      <p class="lead">파우치·차·소품을 준비했습니다.</p>
-      <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px">
-        <div class="card"><h3>보리차</h3><p>가격 미정 · 예시 제품</p></div>
-        <div class="card"><h3>국화차</h3><p>가격 미정 · 예시 제품</p></div>
-        <div class="card"><h3>대추차</h3><p>가격 미정 · 예시 제품</p></div>
-      </div>
-      <p style="margin-top:24px"><a class="btn ghost" href="#">스토어 보기 (링크 입력)</a></p>
+  <h2>제품 안내</h2>
+  <p class="lead">닥터오 프리미엄 제품을 안내해 드립니다.</p>
+  <div class="grid products">
+    <div class="card product">
+      <img src="https://cdn-optimized.imweb.me/upload/S202110080fdb1a4c199e5/bcc46cd422331.jpg?w=750" alt="닥터오 프리미엄 한끼" loading="lazy">
+      <h3>닥터오 프리미엄 한끼</h3>
+      <p class="spec">30포 포장</p>
+      <p class="price">소비자가 160,000원</p>
     </div>
-    <img src="assets/raw/product_nolabel.png" alt="제품 이미지">
+    <div class="card product">
+      <img src="https://cdn-optimized.imweb.me/upload/S202110080fdb1a4c199e5/77e9eac4e506e.jpg?w=750" alt="닥터오 프리미엄 휴" loading="lazy">
+      <h3>닥터오 프리미엄 휴</h3>
+      <p class="spec">60포 포장</p>
+      <p class="price">소비자가 100,000원</p>
+    </div>
+    <div class="card product">
+      <img src="https://cdn-optimized.imweb.me/upload/S202110080fdb1a4c199e5/71e667ab4f081.jpg?w=750" alt="닥터오 프리미엄 황금" loading="lazy">
+      <h3>닥터오 프리미엄 황금</h3>
+      <p class="spec">60포 포장</p>
+      <p class="price">소비자가 140,000원</p>
+    </div>
   </div>
 </section>
 
@@ -136,6 +320,15 @@
     <p>전화: 051-293-9675</p>
     <p>주차: 주차타워 이용 (1시간 무료)</p>
     <p>대중교통: 지하철 괴정역 1번 출구</p>
+    <div class="map">
+      <iframe
+        title="선하한의원 위치 지도"
+        src="https://www.google.com/maps?q=부산시+사하구+낙동대로230&hl=ko&z=17&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+    </div>
+    <p style="margin-top:16px"><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=부산시+사하구+낙동대로230" target="_blank" rel="noopener">구글 지도에서 크게 보기</a></p>
   </div>
 </section>
 
